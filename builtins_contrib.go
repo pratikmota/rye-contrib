@@ -1,8 +1,7 @@
-// +build b_tiny
-
 package contrib
 
 import (
+	"rye/contrib/aws"
 	"rye/env"
 	"rye/evaldo"
 	"strings"
@@ -37,6 +36,7 @@ var Builtins_contrib = map[string]*env.Builtin{
 func RegisterBuiltins(ps *env.ProgramState) {
 	builtinNames = make(map[string]int)
 	RegisterBuiltins2(Builtins_contrib, ps, "contrib")
+	RegisterBuiltins2(aws.Builtins_aws, ps, "aws")
 }
 
 var builtinNames map[string]int
