@@ -1,6 +1,6 @@
 // +build !b_aws
 
-package contrib
+package aws
 
 import (
 	"rye/env"

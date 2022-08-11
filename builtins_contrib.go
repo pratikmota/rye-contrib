@@ -2,6 +2,7 @@ package contrib
 
 import (
 	"rye/contrib/aws"
+	"rye/contrib/bleve"
 	"rye/env"
 	"rye/evaldo"
 	"strings"
@@ -37,6 +38,7 @@ func RegisterBuiltins(ps *env.ProgramState) {
 	builtinNames = make(map[string]int)
 	RegisterBuiltins2(Builtins_contrib, ps, "contrib")
 	RegisterBuiltins2(aws.Builtins_aws, ps, "aws")
+	RegisterBuiltins2(bleve.Builtins_bleve, ps, "bleve")
 }
 
 var builtinNames map[string]int
