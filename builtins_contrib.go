@@ -34,17 +34,17 @@ var Builtins_contrib = map[string]*env.Builtin{
 	},
 }
 
-func RegisterBuiltins(ps *env.ProgramState) {
-	builtinNames = make(map[string]int)
-	RegisterBuiltins2(Builtins_contrib, ps, "contrib")
-	RegisterBuiltins2(aws.Builtins_aws, ps, "aws")
-	RegisterBuiltins2(bleve.Builtins_bleve, ps, "bleve")
+func RegisterBuiltins(ps *env.ProgramState, builtinNames *map[string]int) {
+	RegisterBuiltins2(Builtins_contrib, ps, "contrib", builtinNames)
+	RegisterBuiltins2(aws.Builtins_aws, ps, "aws", builtinNames)
+	RegisterBuiltins2(bleve.Builtins_bleve, ps, "bleve", builtinNames)
 }
 
-var builtinNames map[string]int
+// var builtinNames map[string]int
 
-func RegisterBuiltins2(builtins map[string]*env.Builtin, ps *env.ProgramState, name string) {
-	builtinNames[name] = len(builtins)
+func RegisterBuiltins2(builtins map[string]*env.Builtin, ps *env.ProgramState, name string, builtinNames *map[string]int) {
+	bn := *builtinNames
+	bn[name] = len(builtins)
 	for k, v := range builtins {
 		bu := env.NewBuiltin(v.Fn, v.Argsn, v.AcceptFailure, v.Pure, v.Doc)
 		registerBuiltin(ps, k, *bu)
