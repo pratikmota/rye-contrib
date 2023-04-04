@@ -4,6 +4,7 @@ import (
 	"rye/contrib/aws"
 	"rye/contrib/bleve"
 	"rye/contrib/postmark"
+	"rye/contrib/ryeopenai"
 	"rye/env"
 	"rye/evaldo"
 	"strings"
@@ -40,6 +41,7 @@ func RegisterBuiltins(ps *env.ProgramState, builtinNames *map[string]int) {
 	RegisterBuiltins2(aws.Builtins_aws, ps, "aws", builtinNames)
 	RegisterBuiltins2(bleve.Builtins_bleve, ps, "bleve", builtinNames)
 	RegisterBuiltins2(postmark.Builtins_postmark, ps, "postmark", builtinNames)
+	RegisterBuiltins2(ryeopenai.Builtins_openai, ps, "openai", builtinNames)
 }
 
 // var builtinNames map[string]int
