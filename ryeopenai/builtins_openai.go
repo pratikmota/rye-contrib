@@ -8,10 +8,10 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
+	"github.com/drewlanenga/govector"
+	openai "github.com/sashabaranov/go-openai"
 	"rye/env"
 	"rye/evaldo"
-
-	openai "github.com/sashabaranov/go-openai"
 )
 
 var Builtins_openai = map[string]*env.Builtin{
@@ -81,11 +81,15 @@ var Builtins_openai = map[string]*env.Builtin{
 							Model: openai.AdaEmbeddingV2,
 						},
 					)
-
 					if err != nil {
 						return evaldo.MakeError(ps, err.Error())
 					}
-					return *env.NewNative(ps.Idx, resp.Data[0].Embedding, "openai-embedding")
+					val2, err2 := govector.AsVector(resp.Data[0].Embedding)
+					if err2 != nil {
+						return evaldo.MakeError(ps, err2.Error())
+					}
+					return *env.NewNative(ps.Idx, val2, "vector")
+					//return *env.NewNative(ps.Idx, , "vector")
 				default:
 					return evaldo.MakeError(ps, "Arg 2 not string.")
 				}
