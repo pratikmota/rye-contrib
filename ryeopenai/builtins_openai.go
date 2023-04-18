@@ -88,7 +88,7 @@ var Builtins_openai = map[string]*env.Builtin{
 					if err2 != nil {
 						return evaldo.MakeError(ps, err2.Error())
 					}
-					return *env.NewNative(ps.Idx, val2, "vector")
+					return *env.NewVector(val2)
 					//return *env.NewNative(ps.Idx, , "vector")
 				default:
 					return evaldo.MakeError(ps, "Arg 2 not string.")
