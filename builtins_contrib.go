@@ -1,3 +1,6 @@
+//go:build b_contrib
+// +build b_contrib
+
 package contrib
 
 import (
