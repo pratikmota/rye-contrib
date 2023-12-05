@@ -1,11 +1,15 @@
 //go:build b_contrib
 // +build b_contrib
 
+// NOTE: when compiling contrib modules, also add b_contrib
+// for example: go build -tags "b_sqlite,b_telegram,b_contrib,b_ebitengine"
+
 package contrib
 
 import (
 	"rye/contrib/aws"
 	"rye/contrib/bleve"
+	"rye/contrib/ebitengine"
 	"rye/contrib/postmark"
 	"rye/contrib/ryeopenai"
 	"rye/env"
@@ -45,6 +49,7 @@ func RegisterBuiltins(ps *env.ProgramState, builtinNames *map[string]int) {
 	RegisterBuiltins2(bleve.Builtins_bleve, ps, "bleve", builtinNames)
 	RegisterBuiltins2(postmark.Builtins_postmark, ps, "postmark", builtinNames)
 	RegisterBuiltins2(ryeopenai.Builtins_openai, ps, "openai", builtinNames)
+	RegisterBuiltins2(ebitengine.Builtins_ebitengine, ps, "ebitengine", builtinNames)
 }
 
 // var builtinNames map[string]int
