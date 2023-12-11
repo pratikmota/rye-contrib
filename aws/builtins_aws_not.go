@@ -1,3 +1,4 @@
+//go:build !b_aws
 // +build !b_aws
 
 package aws

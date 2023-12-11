@@ -1,3 +1,4 @@
+//go:build b_bleve
 // +build b_bleve
 
 package bleve
@@ -136,7 +137,7 @@ var Builtins_bleve = map[string]*env.Builtin{
 				case env.String:
 					switch text := arg2.(type) { // recipients
 					case env.String:
-						var doc interface{}
+						var doc any
 						json.Unmarshal([]byte(text.Value), &doc)
 						err := idx.Value.(bleve.Index).Index(ident.Value, doc)
 						if err != nil {
@@ -267,10 +268,10 @@ var Builtins_bleve = map[string]*env.Builtin{
 				case env.Native:
 					iindex := _index.Value.(bleve.Index)
 					sr_ := sr.Value.(*bleve.SearchResult)
-					data := make([]interface{}, sr_.Hits.Len())
+					data := make([]any, sr_.Hits.Len())
 					for i, hit := range sr_.Hits {
 
-						item := make(map[string]interface{})
+						item := make(map[string]any)
 
 						item["_id"] = hit.ID
 						// item["_score"] = strconv.Itoa(hit.)
