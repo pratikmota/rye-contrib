@@ -1,3 +1,4 @@
+//go:build !b_postmark
 // +build !b_postmark
 
 package postmark
