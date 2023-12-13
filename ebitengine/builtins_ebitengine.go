@@ -17,6 +17,8 @@ var onUpdate *env.Block
 
 var Ps *env.ProgramState
 
+var LayoutScale int = 1
+
 type Game struct {
 	w int
 	h int
@@ -67,7 +69,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 // Layout takes the outside size (e.g., the window size) and returns the (logical) screen size.
 // If you don't have to adjust the screen size with the outside size, just return a fixed size.
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	return g.w, g.h
+	return g.w / LayoutScale, g.h / LayoutScale
 }
 
 // ** Just a proof of concept module so far **
@@ -108,6 +110,17 @@ var Builtins_ebitengine = map[string]*env.Builtin{
 			if err := ebiten.RunGame(game); err != nil {
 				// log.Fatal(err)
 				return nil
+			}
+			return nil
+		},
+	},
+	"set-layout-scale": {
+		Argsn: 1,
+		Doc:   "TODODOC",
+		Fn: func(ps *env.ProgramState, arg0 env.Object, arg1 env.Object, arg2 env.Object, arg3 env.Object, arg4 env.Object) env.Object {
+			switch scale := arg0.(type) {
+			case env.Integer:
+				LayoutScale = int(scale.Value)
 			}
 			return nil
 		},
