@@ -4,7 +4,7 @@
 package postmark
 
 import (
-	"rye/env"
+	"github.com/refaktor/rye/env"
 )
 
 var Builtins_postmark = map[string]*env.Builtin{}

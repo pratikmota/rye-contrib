@@ -5,8 +5,9 @@ package ebitengine
 
 import (
 	"fmt"
-	"rye/env"
-	"rye/evaldo"
+
+	"github.com/refaktor/rye/env"
+	"github.com/refaktor/rye/evaldo"
 
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"

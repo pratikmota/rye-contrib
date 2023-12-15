@@ -4,7 +4,7 @@
 package bleve
 
 import (
-	"rye/env"
+	"github.com/refaktor/rye/env"
 )
 
 var Builtins_bleve = map[string]*env.Builtin{}

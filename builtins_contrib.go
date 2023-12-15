@@ -7,14 +7,15 @@
 package contrib
 
 import (
-	"rye/contrib/aws"
-	"rye/contrib/bleve"
-	"rye/contrib/ebitengine"
-	"rye/contrib/postmark"
-	"rye/contrib/ryeopenai"
-	"rye/env"
-	"rye/evaldo"
 	"strings"
+
+	"github.com/refaktor/rye/contrib/aws"
+	"github.com/refaktor/rye/contrib/bleve"
+	"github.com/refaktor/rye/contrib/ebitengine"
+	"github.com/refaktor/rye/contrib/postmark"
+	"github.com/refaktor/rye/contrib/ryeopenai"
+	"github.com/refaktor/rye/env"
+	"github.com/refaktor/rye/evaldo"
 )
 
 var Builtins_contrib = map[string]*env.Builtin{

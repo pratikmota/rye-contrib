@@ -4,7 +4,7 @@
 package ryeopenai
 
 import (
-	"rye/env"
+	"github.com/refaktor/rye/env"
 )
 
 var Builtins_openai = map[string]*env.Builtin{}

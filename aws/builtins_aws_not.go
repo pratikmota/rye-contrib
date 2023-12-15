@@ -4,7 +4,7 @@
 package aws
 
 import (
-	"rye/env"
+	"github.com/refaktor/rye/env"
 )
 
 var Builtins_aws = map[string]*env.Builtin{}

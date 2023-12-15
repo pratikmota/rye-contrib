@@ -8,10 +8,11 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
+
 	"github.com/drewlanenga/govector"
+	"github.com/refaktor/rye/env"
+	"github.com/refaktor/rye/evaldo"
 	openai "github.com/sashabaranov/go-openai"
-	"rye/env"
-	"rye/evaldo"
 )
 
 var Builtins_openai = map[string]*env.Builtin{
