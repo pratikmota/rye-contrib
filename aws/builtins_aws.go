@@ -5,8 +5,9 @@ package aws
 
 import (
 	"bytes"
-	"rye/env"
-	"rye/evaldo"
+
+	"github.com/refaktor/rye/env"
+	"github.com/refaktor/rye/evaldo"
 
 	"fmt"
 

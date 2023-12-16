@@ -5,9 +5,10 @@ package bleve
 
 import (
 	"encoding/json"
-	"rye/env"
-	"rye/evaldo"
 	"strings"
+
+	"github.com/refaktor/rye/env"
+	"github.com/refaktor/rye/evaldo"
 
 	"github.com/blevesearch/bleve/v2"
 	"github.com/blevesearch/bleve/v2/mapping"

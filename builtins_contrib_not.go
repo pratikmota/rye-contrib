@@ -4,7 +4,7 @@
 package contrib
 
 import (
-	"rye/env"
+	"github.com/refaktor/rye/env"
 )
 
 var Builtins_contrib = map[string]*env.Builtin{}

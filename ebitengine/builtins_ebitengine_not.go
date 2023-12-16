@@ -4,7 +4,7 @@
 package ebitengine
 
 import (
-	"rye/env"
+	"github.com/refaktor/rye/env"
 )
 
 var Builtins_ebitengine = map[string]*env.Builtin{}
